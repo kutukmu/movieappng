@@ -1,0 +1,16 @@
+.form-wrapper {
+  background-color: white;
+  margin: 0 auto;
+  margin-top: 2rem;
+  border-radius: 10px;
+}
+
+.example-full-width {
+  width: 100%;
+}
+
+.bottom-container {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}

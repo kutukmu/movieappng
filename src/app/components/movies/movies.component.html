@@ -1,0 +1,30 @@
+<div class="movie-container">
+  <mat-spinner *ngIf="loading$ | async" color="accent"></mat-spinner>
+  <div class="container">
+    <div class="row">
+      <div
+        class="col-xs-12 col-md-6 col-lg-4 col-xl-3"
+        *ngFor="let item of movies$ | async"
+      >
+        <div class="card my-2">
+          <img
+            class="card-img-top"
+            [src]="
+              checkPath(item.poster_path)
+                ? imgBase + item.poster_path
+                : item.poster_path
+            "
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ item.title }}</h5>
+            <p class="card-text">
+              {{ item.overview || "" | shorten }}
+            </p>
+            <a [routerLink]="[item.id]" class="btn btn-primary">Go Details</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

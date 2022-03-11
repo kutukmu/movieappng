@@ -1,0 +1,16 @@
+.full-width {
+  width: 100%;
+}
+
+.wrapper {
+  background-color: white;
+  padding: 30px;
+  margin-top: 50px;
+  border-radius: 10px;
+}
+
+.test-account {
+  display: flex;
+  flex-direction: column;
+  margin-top: 10px;
+}

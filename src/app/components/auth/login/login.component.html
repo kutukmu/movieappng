@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="wrapper">
+    <form [formGroup]="authForm" (ngSubmit)="handleSubmit()" #f="ngForm">
+      <div class="row">
+        <div class="col-xs-12" *ngIf="isRegister">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Username</mat-label>
+            <input matInput formControlName="username" />
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Email</mat-label>
+            <input matInput formControlName="email" />
+          </mat-form-field>
+        </div>
+        <div class="col-xs-12">
+          <mat-form-field appearance="fill" class="full-width">
+            <mat-label>Password</mat-label>
+            <input matInput formControlName="password" type="password" />
+          </mat-form-field>
+        </div>
+
+        <button
+          mat-raised-button
+          color="accent"
+          type="submit"
+          [disabled]="!f.valid"
+        >
+          {{ !isRegister ? "Login" : "Register" }}
+        </button>
+        <mat-slide-toggle color="primary" class="mt-3" (click)="handleSwitch()"
+          >Switch Register</mat-slide-toggle
+        >
+
+        <div class="test-account">
+          <span><b>Email:</b> test@email.com</span>
+          <span><b>Password:</b> 123123</span>
+        </div>
+      </div>
+    </form>
+  </div>
+
+  <div class="alert alert-danger mt-3" *ngIf="auth.errorMsg">
+    <p>{{ auth.errorMsg }}</p>
+  </div>
+</div>

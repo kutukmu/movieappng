@@ -1,0 +1,63 @@
+<nav class="navbar navbar-expand-lg navbar-light navbar-custom">
+  <div class="container-fluid">
+    <a class="navbar-brand" routerLink="/"> MoviesApp</a>
+    <button class="navbar-toggler" type="button" (click)="handleClick()">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div
+      class="collapse navbar-collapse justify-content-between"
+      [ngClass]="{ show: isClicked }"
+    >
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['movies']"
+          >
+            Movies
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['movies', 'create']"
+          >
+            Create Movie
+          </a>
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngIf="!auth.user">
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['login']"
+            >Login</a
+          >
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" routerLinkActive="active" [routerLink]="['login']"
+            >Register</a
+          >
+        </li>
+      </ul>
+      <ul class="navbar-nav mr-auto" *ngIf="auth.user">
+        <li class="nav-item mr-2">
+          <a
+            class="nav-link"
+            routerLinkActive="active"
+            [routerLink]="['profile']"
+          >
+            <span class="nav-container">
+              <mat-icon>perm_identity</mat-icon>
+              <b>{{ auth.user.email | username }}</b>
+            </span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <button class="btn btn-danger" (click)="handleLogOut()">Logut</button>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>

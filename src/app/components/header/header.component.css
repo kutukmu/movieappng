@@ -1,0 +1,17 @@
+@import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+.navbar-custom {
+  background-color: #9fd3c7;
+  font-family: "Lato";
+}
+
+.navbar-custom .navbar-brand {
+  font-weight: 700;
+}
+
+.nav-container {
+  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
